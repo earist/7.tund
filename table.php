@@ -4,7 +4,7 @@
 	//kas kustutame, ?delete = vastav id mida kustutada on aadressireal
 	if(isset($_GET["delete"])){
 		echo "Kustutame id" .$_GET["delete"];
-		//k‰ivitan funktsiooni, saadan kaasa id
+		//k√§ivitan funktsiooni, saadan kaasa id
 		deleteCar($_GET["delete"]);
 	
 	}
@@ -13,10 +13,10 @@
 		updateCar($_POST["id"], $_POST["plate_number"], $_POST["color"]);
 	}
 	
-	//k‰ivitan funktsiooni
+	//k√§ivitan funktsiooni
 	$car_array = getCarData();
 	
-	//tr¸kin v‰lja esimese auto
+	//tr√ºkin v√§lja esimese auto
 	//echo $car_array[0]->id." ".$car_array[0]->plate;
 	
 ?>
@@ -26,14 +26,14 @@
 	<tr>
 		<th>Id</th>
 		<th>User id</th>
-		<th>Numbrim‰rk</th>
-		<th>V‰rv</th>
+		<th>Numbrim√§rk</th>
+		<th>V√§rv</th>
 		<th>X</th>
 		<th>Edit</th>
 	</tr>
 
 	<?php
-		//tr¸kime v‰lja read
+		//tr√ºkime v√§lja read
 		//massiivi pikkus count()
 		for($i = 0; $i < count($car_array); $i++){
 			//echo $car_array[$i]->id;

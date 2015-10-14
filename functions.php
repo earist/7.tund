@@ -1,6 +1,6 @@
 <?php
 
-	//Loome ühenduse andmebaasiga
+	//Loome Ã¼henduse andmebaasiga
 	require_once("../config_global.php");
 	$database = "if15_earis_3";
 	
@@ -10,29 +10,29 @@
 		$stmt->bind_result($id, $user_id, $number_plate, $color);
 		$stmt->execute();
 		
-		//tekitan tühja massiivi, kus edaspidi hoian objekte
+		//tekitan tÃ¼hja massiivi, kus edaspidi hoian objekte
 		$car_array = array ();
 		
-		//tee midagi seni, kuni saame andmebaasist ühe rea andmeid
+		//tee midagi seni, kuni saame andmebaasist Ã¼he rea andmeid
 		while($stmt->fetch()){
 			//seda siin sees tehakse nii mitu korda kui on ridu
 			
-			//tekitan objekti, kus hakkan hoidma väärtusi
+			//tekitan objekti, kus hakkan hoidma vÃ¤Ã¤rtusi
 			$car = new StdClass();
 			$car->id = $id;
 			$car->plate =$number_plate;
 			$car->user_id=$user_id;
 			$car->color=$color;
 			
-			//lisan massiivi ühe rea juurde
+			//lisan massiivi Ã¼he rea juurde
 			array_push($car_array, $car);
-			//var dump ütleb muutuja tüübi ja sisu
+			//var dump Ã¼tleb muutuja tÃ¼Ã¼bi ja sisu
 			//echo "<pre>";
 			//var_dump($car_array);
 			//echo "</pre><br>";
 			
 		}
-		//tagastan massiivi, kus kõik read sees
+		//tagastan massiivi, kus kÃµik read sees
 		return $car_array;
 		
 		$stmt->close();
@@ -45,7 +45,7 @@
 		$stmt = $mysqli->prepare("UPDATE car_plates SET deleted=NOW() WHERE id=?");
 		$stmt->bind_param("i", $id);
 		if($stmt->execute()){
-			//sai kustutatud, kustutame aadressirea tühjaks
+			//sai kustutatud, kustutame aadressirea tÃ¼hjaks
 			header("Location: table.php");
 			
 		}
@@ -59,7 +59,7 @@
 		$stmt = $mysqli->prepare("UPDATE car_plates SET number_plate=?, color=? WHERE id=?");
 		$stmt->bind_param("ssi", $number_plate, $color, $id);
 		if($stmt->execute()){
-			//sai kustutatud, kustutame aadressirea tühjaks
+			//sai kustutatud, kustutame aadressirea tÃ¼hjaks
 			//header("Location: table.php");
 			
 		}
